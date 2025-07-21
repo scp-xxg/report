@@ -1,0 +1,27 @@
+2025-07-12 15:29:45,043 - numexpr.utils - INFO - Note: NumExpr detected 40 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-07-12 15:29:45,044 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-07-12 15:29:51,554 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.130.138.49:8080
+2025-07-12 15:29:51,554 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-12 15:29:51,560 - werkzeug - INFO -  * Restarting with stat
+2025-07-12 15:29:52,561 - numexpr.utils - INFO - Note: NumExpr detected 40 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-07-12 15:29:52,561 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-07-12 15:29:53,962 - werkzeug - WARNING -  * Debugger is active!
+2025-07-12 15:29:53,962 - werkzeug - INFO -  * Debugger PIN: 125-486-046
+2025-07-12 15:34:53,856 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:53] "GET / HTTP/1.1" 200 -
+2025-07-12 15:34:53,899 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:53] "[36mGET /style_improved.css HTTP/1.1[0m" 304 -
+2025-07-12 15:34:54,039 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:54] "GET /unified_state_manager.js HTTP/1.1" 200 -
+2025-07-12 15:34:54,278 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:54] "[36mGET /script_improved.js HTTP/1.1[0m" 304 -
+2025-07-12 15:34:54,292 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:54] "[36mGET /step_navigator_rewrite.js HTTP/1.1[0m" 304 -
+2025-07-12 15:34:54,678 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:54] "GET /api/health HTTP/1.1" 200 -
+2025-07-12 15:34:54,820 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:34:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-12 15:35:59,455 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:35:59] "POST /api/generate-report HTTP/1.1" 200 -
+2025-07-12 15:36:03,514 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:36:03] "GET /api/download/report_20250712_153559.md HTTP/1.1" 200 -
+2025-07-12 15:39:06,549 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:06] "[36mGET / HTTP/1.1[0m" 304 -
+2025-07-12 15:39:06,584 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:06] "[36mGET /style_improved.css HTTP/1.1[0m" 304 -
+2025-07-12 15:39:06,763 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:06] "[36mGET /unified_state_manager.js HTTP/1.1[0m" 304 -
+2025-07-12 15:39:06,968 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:06] "[36mGET /script_improved.js HTTP/1.1[0m" 304 -
+2025-07-12 15:39:06,980 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:06] "[36mGET /step_navigator_rewrite.js HTTP/1.1[0m" 304 -
+2025-07-12 15:39:07,365 - werkzeug - INFO - 127.0.0.1 - - [12/Jul/2025 15:39:07] "GET /api/health HTTP/1.1" 200 -

@@ -1,0 +1,70 @@
+{
+  "project": {
+    "name": "multi-agent-report-generator",
+    "version": "1.0.0",
+    "description": "多智能体协作的自动化报告生成系统",
+    "author": "GitHub Copilot Assistant",
+    "license": "MIT"
+  },
+  "system": {
+    "default_model_type": "openai",
+    "default_model_name": "gpt-3.5-turbo",
+    "default_output_dir": "./output",
+    "max_retry_attempts": 3,
+    "request_timeout": 60
+  },
+  "agents": {
+    "outline_agent": {
+      "name": "大纲生成智能体",
+      "max_sections": 10,
+      "min_sections": 3
+    },
+    "content_agent": {
+      "name": "内容生成智能体", 
+      "target_words_per_section": 500,
+      "writing_style": "professional"
+    },
+    "polish_agent": {
+      "name": "润色智能体",
+      "polish_aspects": ["语言流畅性", "逻辑清晰性", "专业术语规范", "句式多样性", "表达准确性"]
+    },
+    "chart_agent": {
+      "name": "图表生成智能体",
+      "supported_types": ["bar", "line", "pie", "scatter", "histogram", "box", "heatmap", "table"],
+      "output_format": "png",
+      "dpi": 300
+    }
+  },
+  "report_types": {
+    "research": {
+      "name": "研究报告",
+      "description": "学术研究类报告，包含文献综述、方法论等"
+    },
+    "business": {
+      "name": "商业报告", 
+      "description": "商业分析报告，包含市场分析、竞争分析等"
+    },
+    "technical": {
+      "name": "技术报告",
+      "description": "技术文档，包含架构设计、实现方案等"
+    },
+    "academic": {
+      "name": "学术论文",
+      "description": "学术论文格式，符合期刊发表标准"
+    }
+  },
+  "output_formats": {
+    "markdown": {
+      "extension": ".md",
+      "description": "Markdown格式，便于版本控制和协作"
+    },
+    "docx": {
+      "extension": ".docx", 
+      "description": "Word文档格式，适合商业环境"
+    },
+    "json": {
+      "extension": ".json",
+      "description": "JSON格式，便于程序处理"
+    }
+  }
+}

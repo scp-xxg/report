@@ -1,0 +1,14 @@
+langchain>=0.1.0,<0.2.0
+openai>=1.0.0,<2.0.0
+python-dotenv>=1.0.0
+matplotlib>=3.7.0
+plotly>=5.15.0
+pandas>=2.0.0
+python-docx>=0.8.11
+requests>=2.31.0
+flask>=3.0.0
+flask-cors>=6.0.0
+
+# 可选依赖（根据需要安装）
+# vllm>=0.2.0  # 用于本地模型推理
+# tiktoken>=0.5.0  # 用于token计数（OpenAI模型）

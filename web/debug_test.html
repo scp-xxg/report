@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>报告生成测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>报告生成系统测试</h1>
+    
+    <div class="test-section">
+        <h2>1. API健康检查</h2>
+        <button onclick="testHealth()">测试API健康状态</button>
+        <div id="healthResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. 报告生成测试</h2>
+        <button onclick="testReportGeneration()">测试报告生成</button>
+        <div id="reportResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. 简化生成测试</h2>
+        <button onclick="testSimpleGeneration()">简化测试</button>
+        <div id="simpleResult" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE_URL = window.location.origin;
+        
+        async function testHealth() {
+            const result = document.getElementById('healthResult');
+            try {
+                result.textContent = '正在检查API健康状态...';
+                const response = await fetch(`${API_BASE_URL}/api/health`);
+                const data = await response.json();
+                result.textContent = `✅ API健康状态：\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                result.textContent = `❌ API健康检查失败：\n${error.message}`;
+            }
+        }
+        
+        async function testReportGeneration() {
+            const result = document.getElementById('reportResult');
+            try {
+                result.textContent = '正在生成报告...';
+                
+                const requestData = {
+                    topic: "AI技术发展趋势测试",
+                    reportType: "research",
+                    reportLength: "medium",
+                    enableCharts: true,
+                    enablePolish: true,
+                    formats: ["markdown"]
+                };
+                
+                const response = await fetch(`${API_BASE_URL}/api/generate-report`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                result.innerHTML = `✅ 报告生成成功：
+生成状态: ${data.status}
+主题: ${data.topic}
+处理时间: ${data.processing_time}秒
+输出文件: ${JSON.stringify(data.output_files, null, 2)}
+
+<h3>下载链接:</h3>`;
+                
+                if (data.output_files) {
+                    for (const [format, url] of Object.entries(data.output_files)) {
+                        result.innerHTML += `<a href="${url}" target="_blank" style="display: block; margin: 5px 0;">${format.toUpperCase()} 格式下载</a>`;
+                    }
+                }
+                
+            } catch (error) {
+                result.textContent = `❌ 报告生成失败：\n${error.message}`;
+            }
+        }
+        
+        async function testSimpleGeneration() {
+            const result = document.getElementById('simpleResult');
+            try {
+                result.textContent = '正在进行简化测试...';
+                
+                const requestData = {
+                    topic: "简单测试",
+                    formats: ["markdown"]
+                };
+                
+                const response = await fetch(`${API_BASE_URL}/api/generate-report`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                const data = await response.json();
+                result.textContent = `✅ 简化测试结果：\n${JSON.stringify(data, null, 2)}`;
+                
+            } catch (error) {
+                result.textContent = `❌ 简化测试失败：\n${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
